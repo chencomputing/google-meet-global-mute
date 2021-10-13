@@ -10,9 +10,10 @@
         "service_worker": "background.js"
       },
       "commands": {
-        "inject-script": {
-          "suggested_key": "Ctrl+Shift+E",
-          "description": "Toogle mute status"
+        "toggle-mute": {
+          "suggested_key": "Ctrl+Shift+6",
+          "description": "Toogle mute status",
+          "global": true
         }
       },
     "content_scripts": [
