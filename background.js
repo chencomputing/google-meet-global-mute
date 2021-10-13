@@ -6,14 +6,14 @@ chrome.commands.onCommand.addListener((command) => {
             return;
         }
 
-        tabs.forEach((tab) => {
-            // chrome.tabs.sendMessage(tab.id, { test: 'test' }, () => console.log('message sent'));
+        chrome.tabs.sendMessage(tabs[0].id, { type: 'toggle' }, (response) => {
+            console.log(response);
         });
     });
   });
 
 async function getGoogleMeetTabs() {
-    let queryOptions = { url: 'https://meet.google.com/*', title: 'Meet*' };
+    let queryOptions = { url: 'https://meet.google.com/*' };
     let results = await chrome.tabs.query(queryOptions);
 
     return results;
