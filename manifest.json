@@ -1,0 +1,24 @@
+{
+    "name": "Google Meet Global Mute",
+    "description": "Provides a configurable way to mute meetings in Google Meet!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "tabs"
+      ],
+    "background": {
+        "service_worker": "background.js"
+      },
+      "commands": {
+        "inject-script": {
+          "suggested_key": "Ctrl+Shift+E",
+          "description": "Toogle mute status"
+        }
+      },
+    "content_scripts": [
+        {
+            "matches": ["https://meet.google.com/*"],
+            "js":["content-script.js"]
+        }
+    ]
+  }
