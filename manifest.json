@@ -16,6 +16,14 @@
           "global": true
         }
       },
+    "action": {
+      "default_icon": {
+        "16": "images/mic-green-16.png",
+        "24": "images/mic-green-24.png",
+        "32": "images/mic-green-32.png"
+      },
+      "default_title": "Google Meet Global Mute"
+    },
     "content_scripts": [
         {
             "matches": ["https://meet.google.com/*"],
@@ -23,3 +31,4 @@
         }
     ]
   }
+  
