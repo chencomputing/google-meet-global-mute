@@ -52,7 +52,7 @@ function getMuteElement() {
 
 function isPrejoin() {
     // data-is-green-room works too
-    return !!document.querySelector('[data-is-prejoin]')
+    return !!getPrejoinElement();
 }
 
 function isPostMeeting() {
@@ -70,4 +70,8 @@ function isMuted() {
     }
 
     return false;
+}
+
+function getPrejoinElement() {
+    return document.querySelector('[data-is-prejoin]');
 }
