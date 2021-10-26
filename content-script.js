@@ -24,6 +24,7 @@ chrome.runtime.onMessage.addListener(
 
 window.addEventListener('load', function() {
     setupPrejoinRoom();
+    setupRoomTransition();
 });
 
 function setupPrejoinRoom() {
@@ -44,6 +45,34 @@ function setupPrejoinRoom() {
     });
 
     observer.observe(muteElement, { attributes: true });
+}
+
+// The room transition is when you click "Join now" and go from
+// the prejoin room to the normal Google Meet room. We need to
+// know this information because the mute button is different
+// and we need to re-attach.
+function setupRoomTransition() {
+    if (!isPrejoin()) {
+        return;
+    }
+
+    // This is a really high parent element that catches most of the
+    // mutations on the page.
+    let meetingElement = document.querySelector('[data-meeting-code]');
+
+    const observer = new MutationObserver((mutationsList, observer) => {
+        for (const mutation of mutationsList) {
+            if (mutation.type != 'childList' || mutation.removedNodes.length == 0) {
+                continue;
+            }
+
+            if (mutation.removedNodes[0].firstChild?.nodeName === "VIDEO") {
+                console.log('Transitioning from prejoin to main meeting.');
+            }
+        }
+    });
+
+    observer.observe(meetingElement, { childList: true, subtree: true });
 }
 
 function getMuteElement() {
