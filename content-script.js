@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(
             // isMuted returns the opposite from it's actual status when called
             // from this listener here and I don't know why. Inverting the result
             // is always successful though so.../shrug
-            sendResponse({status: !isMuted() ? 'muted' : 'unmuted'});
+            sendResponse({status: isMuted() ? 'muted' : 'unmuted'});
         } else {
             sendResponse({status: 'acknowledged'});
         }
@@ -92,7 +92,7 @@ function isMuted() {
     let muteElement = getMuteElement();
 
     if (muteElement) {
-        let muted = muteElement.dataset.isMuted === 'true';
+        let muted = muteElement.dataset.isMuted === 'false';
         console.log(`Muted: ${muted}`);
 
         return muted;
