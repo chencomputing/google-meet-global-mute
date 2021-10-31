@@ -9,13 +9,13 @@
     "background": {
         "service_worker": "background.js"
       },
-      "commands": {
-        "toggle-mute": {
-          "suggested_key": "Ctrl+Shift+6",
-          "description": "Toogle mute status",
-          "global": true
-        }
-      },
+    "commands": {
+      "toggle-mute": {
+        "suggested_key": "Ctrl+Shift+6",
+        "description": "Toogle mute status",
+        "global": true
+      }
+    },
     "action": {
       "default_icon": {
         "16": "images/mic-green-16.png",

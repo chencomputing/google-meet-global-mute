@@ -10,7 +10,7 @@ chrome.commands.onCommand.addListener((command) => {
             console.log(response);
         });
     });
-  });
+});
 
 async function getGoogleMeetTabs() {
     let queryOptions = { url: 'https://meet.google.com/*' };
