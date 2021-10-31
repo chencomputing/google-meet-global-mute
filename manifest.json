@@ -1,6 +1,6 @@
 {
     "name": "Google Meet Global Mute",
-    "description": "Provides a configurable way to mute meetings in Google Meet!",
+    "description": "Use a global hotkey to mute and unmute Google Meet! Comes with configurable options.",
     "version": "1.0",
     "manifest_version": 3,
     "permissions": [
